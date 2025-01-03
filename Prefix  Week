@@ -1,0 +1,22 @@
+//03/01/2025 leetcode - 2270
+class Solution {
+public:
+    int waysToSplitArray(vector<int>& nums) {
+        int n =nums.size();
+        long long sum=0;
+        long long pre=0;
+        long long suf=0;
+        int split=0;
+        for(int &num : nums) {
+            sum += num;
+        }
+        for(int i=0;i<n-1;i++){
+            pre+=nums[i];
+            suf=sum-pre;
+            if(pre>=suf) split++;
+        }
+        return split;
+
+        
+    }
+};
